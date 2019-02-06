@@ -7,70 +7,80 @@ class MovieGuideApp extends StatelessWidget {
   final List<String> imagesURL = [
     'assets/images/lorena.bmp',
     'assets/images/papalion.bmp',
-    'assets/images/papalion.bmp'
+    'assets/images/johnwick.jpg',
+    "assets/images/dict.jpg",
+    "assets/images/fight.jpg",
+    "assets/images/twoguys.jpg",
+    "assets/images/wildtales.jpg",
+    "assets/images/shanghai.jpg",
+    "assets/images/abad.jpg",
+    "assets/images/dict.jpg"
   ];
 
   MovieGuideApp() {}
 
   @override
   Widget build(BuildContext context) {
-    debugPaintSizeEnabled = true;
+    //debugPaintSizeEnabled = true;
     print('In Build');
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(title: Text('Movie Guide'), actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.sort),
-          onPressed: () {},
-        )
-      ]),
-      body: GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: (130/ 199),
-        children: List.generate(imagesURL.length, (index) {
-          return GestureDetector(
-            child: InkWell(
-              onTap: (){
-                print('${imagesURL[index]}');
-              },
-              child: Column(
-                children: <Widget>[
-                  Container(
-                      width: double.infinity,
-                      height:290,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(imagesURL[index])),
-                            color: Colors.redAccent,
-                      )),
-                ],
+            appBar: AppBar(
+              title: Text('Movie Guide'),
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: Icon(Icons.sort),
+                  onPressed: () {},
+                )
+              ],
+              leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+            ),
+            body: GridView.count(
+              crossAxisCount: 2,
+              padding: EdgeInsets.all(4.0),
+              childAspectRatio: 140 / 209,
+              children: List.generate(imagesURL.length, (index) {
+                return _singleGridCard(index, context);
+              }),
+            )));
+  }
+
+  Widget _singleGridCard(int index, BuildContext context) {
+    var gridCard = Card(
+        elevation: 1.0,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        clipBehavior: Clip.hardEdge,
+        child: Container(
+            child: Column(
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 2 / 2.7,
+              child: Image.asset(
+                imagesURL[index],
+                fit: BoxFit.cover,
               ),
             ),
-            onTap: () {
-              //print('${imagesURL[index]}');
-            },
-          );
-        }),
-      ),
-    ));
-  }
-}
+            Padding(
+              padding: EdgeInsets.fromLTRB(4.0, 0.0, 4.0, 2.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Movie Name',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            )
+          ],
+        )));
 
-class ImageData {
-  static List<String> imagesURL;
-
-  ImageData() {
-    print('In Constructor');
-    List<String> imagesURL = new List();
-    imagesURL.add('assets/images/lorena.bmp');
-    imagesURL.add('assets/images/papalion.bmp');
-    print(imagesURL.elementAt(0));
-    print(imagesURL.elementAt(1));
-    print(imagesURL);
-  }
-
-  static List<String> getImagePaths() {
-    return imagesURL;
+    return gridCard;
   }
 }

@@ -12,4 +12,20 @@ class Movie
   String language;
   String country;
   String imgURL;
+
+  Movie(
+  {
+    this.id,
+    this.title,
+    this.categories,
+    this.releaseDate,
+    this.desc,
+    this.rating,
+    this.directors,
+    this.language,
+    this.country,
+    this.imgURL
+  }
+  );
 }
+

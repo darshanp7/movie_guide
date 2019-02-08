@@ -12,6 +12,7 @@ class Movie
   String language;
   String country;
   String imgURL;
+  String bannerURL;
 
   Movie(
   {
@@ -24,7 +25,8 @@ class Movie
     this.directors,
     this.language,
     this.country,
-    this.imgURL
+    this.imgURL,
+    this.bannerURL
   }
   );
 }

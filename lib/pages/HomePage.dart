@@ -1,22 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../Movie.dart';
+import './MoviePage.dart';
 
 class HomePage extends StatelessWidget
 {
   List<Movie> _movieList;
-  final List<String> imagesURL = [
-    'assets/images/lorena.bmp',
-    'assets/images/papalion.bmp',
-    'assets/images/johnwick.jpg',
-    "assets/images/dict.jpg",
-    "assets/images/fight.jpg",
-    "assets/images/twoguys.jpg",
-    "assets/images/wildtales.jpg",
-    "assets/images/shanghai.jpg",
-    "assets/images/abad.jpg",
-    "assets/images/dict.jpg"
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +33,7 @@ class HomePage extends StatelessWidget
               crossAxisCount: 2,
               padding: EdgeInsets.all(4.0),
               childAspectRatio: 140 / 209,
-              children: List.generate(imagesURL.length, (index) {
+              children: List.generate(_movieList.length, (index) {
                 return Stack(
                   children: <Widget>[
                     Positioned.fill(
@@ -79,7 +68,7 @@ class HomePage extends StatelessWidget
                 AspectRatio(
                   aspectRatio: 2 / 2.7,
                   child: Image.asset(
-                    imagesURL[index],
+                    _movieList[index].imgURL,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -115,7 +104,8 @@ class HomePage extends StatelessWidget
           directors: "Lorena Bobbitt, Joshua Rofé",
           language: "English",
           country: "USA",
-          imgURL: "assets/images/lorena.bmp"
+          imgURL: "assets/images/lorena.bmp",
+          bannerURL: "assets/images/lorena_banner.jpg"
       ),
       Movie(
           id: 2,
@@ -127,7 +117,8 @@ class HomePage extends StatelessWidget
           directors: "Michael Noer",
           language: "English",
           country: "USA",
-          imgURL: "assets/images/papalion.bmp"
+          imgURL: "assets/images/papalion.bmp",
+          bannerURL: "assets/images/papillion_banner.jpg"
       ),
       Movie(
           id: 3,
@@ -139,7 +130,8 @@ class HomePage extends StatelessWidget
           directors: "Saeed Roustayi",
           language: "Persian",
           country: "Iran",
-          imgURL: "assets/images/abad.jpg"
+          imgURL: "assets/images/abad.jpg",
+          bannerURL: "assets/images/abad_banner.jpg"
       ),
       Movie(
           id: 4,
@@ -151,7 +143,8 @@ class HomePage extends StatelessWidget
           directors: "Dibakar Banerjee",
           language: "Hindi",
           country: "India",
-          imgURL: "assets/images/shanghai.jpg"
+          imgURL: "assets/images/shanghai.jpg",
+          bannerURL: "assets/images/shanghai_banner.jpg"
       ),
       Movie(
           id: 5,
@@ -163,7 +156,8 @@ class HomePage extends StatelessWidget
           directors: "Damián Szifron",
           language: " Spanish",
           country: "Argentina",
-          imgURL: "assets/images/wildtales.jpg"
+          imgURL: "assets/images/wildtales.jpg",
+          bannerURL: "assets/images/wild_banner.jpg"
       ),
       Movie(
           id: 6,
@@ -175,7 +169,8 @@ class HomePage extends StatelessWidget
           directors: "Denis Villeneuve",
           language: "French",
           country: "France",
-          imgURL: "assets/images/incendies.jpg"
+          imgURL: "assets/images/incendies.jpg",
+          bannerURL: "assets/images/incendies-banner.jpg"
       ),
       Movie(
           id: 7,
@@ -187,7 +182,8 @@ class HomePage extends StatelessWidget
           directors: "Hun-Su Park",
           language: "Korean",
           country: "South Korea",
-          imgURL: "assets/images/twoguys.jpg"
+          imgURL: "assets/images/twoguys.jpg",
+          bannerURL: "assets/images/twoguys_banner.jpg"
       ),
       Movie(
           id: 8,
@@ -199,7 +195,8 @@ class HomePage extends StatelessWidget
           directors: "David Fincher",
           language: "English",
           country: "USA",
-          imgURL: "assets/images/fight.jpg"
+          imgURL: "assets/images/fight.jpg",
+          bannerURL: "assets/images/fight_banner.jpg"
       ),
       Movie(
           id: 9,
@@ -211,7 +208,8 @@ class HomePage extends StatelessWidget
           directors: "Chad Stahelski",
           language: "English",
           country: "USA",
-          imgURL: "assets/images/johnwick.jpg"
+          imgURL: "assets/images/johnwick.jpg",
+          bannerURL: "assets/images/johnwick_banner.jpg"
       ),
       Movie(
           id: 10,
@@ -223,7 +221,8 @@ class HomePage extends StatelessWidget
           directors: "Larry Charles",
           language: "English",
           country: "USA",
-          imgURL: "assets/images/dict.jpg"
+          imgURL: "assets/images/dict.jpg",
+          bannerURL: "assets/images/dict_banner.png"
       )
     ];
   }
@@ -259,21 +258,4 @@ class MovieSearchDelegate extends SearchDelegate<String>
     return null;
   }
 
-}
-
-class MoviePage extends StatelessWidget
-{
-  Movie movie;
-
-  MoviePage(Movie selectedMovie)
-  {
-    this.movie = selectedMovie;
-
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(movie.title)),
-    );
-  }
 }

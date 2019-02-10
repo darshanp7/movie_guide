@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import './Movie.dart';
+import './model/Movie.dart';
 import './pages/HomePage.dart';
 
 void main() => runApp(MovieGuideApp());

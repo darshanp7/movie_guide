@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Movie.dart';
+import '../model/Movie.dart';
 
 class MoviePage extends StatelessWidget
 {
@@ -9,8 +9,8 @@ class MoviePage extends StatelessWidget
   MoviePage(Movie selectedMovie)
   {
     this.movie = selectedMovie;
-
   }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

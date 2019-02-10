@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Movie.dart';
+import '../model/Movie.dart';
 import './MoviePage.dart';
 
 class HomePage extends StatelessWidget
@@ -27,7 +27,53 @@ class HomePage extends StatelessWidget
                   onPressed: () {},
                 )
               ],
-              leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+            ),
+            drawer: SizedBox(
+              width: (MediaQuery.of(context).size.width * 0.65),
+              child: Drawer(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    DrawerHeader(
+                      child: Text('Select Category',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 25.0),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Action'),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      title: Text('Biography'),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      title: Text('Comedy'),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      title: Text('Crime'),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      title: Text('Drama'),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      title: Text('Mystery'),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      title: Text('Thriller'),
+                      onTap: (){},
+                    ),
+                  ],
+                ),
+              ),
             ),
             body: GridView.count(
               crossAxisCount: 2,
@@ -78,7 +124,7 @@ class HomePage extends StatelessWidget
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Movie Name',
+                        _movieList[index].title,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       )

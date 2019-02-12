@@ -9,7 +9,7 @@ import './MoviePage.dart';
 class HomePage extends StatelessWidget {
   List<Movie> _movieList;
 
-  String _filename = 'assets/database/db.json';
+  final String _filename = 'assets/database/db.json';
 
   @override
   Widget build(BuildContext context) {
@@ -83,30 +83,24 @@ class HomePage extends StatelessWidget {
             child: new FutureBuilder(
                 future: DefaultAssetBundle.of(context).loadString(_filename),
                 builder: (context, snapshot) {
-                  if(snapshot.data == null) {
+                  if (snapshot.data == null) {
+                    print('snapshot data is null');
                     return Container(
-                      child: Center(
-                        child: Text('LOADING'),
-                      )
+                        child: Center(
+                      child: Text('LOADING'),
+                    ));
+                  } else {
+                    print('snapshot data is not null');
+                    _movieList = _parseJson(snapshot.data.toString());
+                    return Container(
+                      child: ListView.builder(
+                        itemCount: _movieList.length,
+                        itemBuilder: (context, index){
+                          return _singleGridCard(index);
+                          },
+                      ),
                     );
                   }
-                  else{
-                  return GridView.count(
-                      crossAxisCount: 2,
-                      padding: EdgeInsets.all(4.0),
-                    childAspectRatio: 140/209,
-                    children: <Widget>[
-                      Container(
-                        child: ListView.builder(
-                          itemBuilder: (BuildContext context, int index){
-
-                  })
-
-                        ),
-                      )
-                    ],
-                    ],
-                  );}
                 })));
   }
 

@@ -20,7 +20,7 @@ class MoviePage extends StatelessWidget
       body: ListView(
         children: <Widget>[
           HeaderBanner(movie),
-          GetTags(movie.categories),
+          GetTags(movie.category),
           Container(
             padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 20.0),
             child: Text(
@@ -118,7 +118,7 @@ class GetTags extends StatelessWidget {
           itemBuilder: (BuildContext context, int index)
           {
             return InkWell(
-              onTap: () => {},
+              onTap: () => print('${_categories[index]} clicked'),
               child: Container(
                 width: 100.0,
                 height: 35.0,

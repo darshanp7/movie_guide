@@ -9,7 +9,8 @@
     "directors": "Lorena Bobbitt, Joshua Rofé",
     "language": "English",
     "country": "USA",
-    "imgURL": "assets/images/lorena.bmp"
+    "imgURL": "assets/images/lorena.bmp",
+    "bannerURL": "assets/images/lorena_banner.jpg"
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "directors": "Michael Noer",
     "language": "English",
     "country": "USA",
-    "imgURL": "assets/images/papalion.bmp"
+    "imgURL": "assets/images/papalion.bmp",
+    "bannerURL": "assets/images/papillion_banner.jpg"
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "directors": "Saeed Roustayi",
     "language": "Persian",
     "country": "Iran",
-    "imgURL": "assets/images/abad.jpg"
+    "imgURL": "assets/images/abad.jpg",
+    "bannerURL": "assets/images/abad_banner.jpg"
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "directors": "Dibakar Banerjee",
     "language": "Hindi",
     "country": "India",
-    "imgURL": "assets/images/shanghai.jpg"
+    "imgURL": "assets/images/shanghai.jpg",
+    "bannerURL": "assets/images/shanghai_banner.jpg"
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "directors": "Damián Szifron",
     "language": " Spanish",
     "country": "Argentina",
-    "imgURL": "assets/images/wildtales.jpg"
+    "imgURL": "assets/images/wildtales.jpg",
+    "bannerURL": "assets/images/wild_banner.jpg"
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
     "directors": "Denis Villeneuve",
     "language": "French",
     "country": "France",
-    "imgURL": "assets/images/incendies.jpg"
+    "imgURL": "assets/images/incendies.jpg",
+    "bannerURL": "assets/images/incendies-banner.jpg"
   },
   {
     "id": 7,
@@ -81,7 +87,8 @@
     "directors": "Hun-Su Park",
     "language": "Korean",
     "country": "South Korea",
-    "imgURL": "assets/images/twoguys.jpg"
+    "imgURL": "assets/images/twoguys.jpg",
+    "bannerURL": "assets/images/twoguys_banner.jpg"
   },
   {
     "id": 8,
@@ -93,7 +100,8 @@
     "directors": "David Fincher",
     "language": "English",
     "country": "USA",
-    "imgURL": "assets/images/fight.jpg"
+    "imgURL": "assets/images/fight.jpg",
+    "bannerURL": "assets/images/fight_banner.jpg"
   },
   {
     "id": 9,
@@ -105,7 +113,8 @@
     "directors": "Chad Stahelski",
     "language": "English",
     "country": "USA",
-    "imgURL": "assets/images/johnwick.jpg"
+    "imgURL": "assets/images/johnwick.jpg",
+    "bannerURL": "assets/images/johnwick_banner.jpg"
   },
   {
     "id": 10,
@@ -117,6 +126,7 @@
     "directors": "Larry Charles",
     "language": "English",
     "country": "USA",
-    "imgURL": "assets/images/dict.jpg"
-  },
+    "imgURL": "assets/images/dict.jpg",
+    "bannerURL": "assets/images/dict_banner.png"
+  }
 ]

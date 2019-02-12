@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'dart:convert';
 
 class Movie 
 {
@@ -29,5 +30,22 @@ class Movie
     this.bannerURL
   }
   );
+
+  factory Movie.fromJson(Map<String, dynamic> json)
+  {
+    return new Movie(
+      id: json['id'] as int,
+      title: json['title'] as String,
+      categories: json['categories'] as List<String>,
+      releaseDate: json['releaseDate'] as String,
+      desc: json['desc'] as String,
+      rating: json['rating'] as double,
+      directors: json['directors'] as String,
+      language: json['language'] as String,
+      country: json['country'] as String,
+      imgURL: json['imgURL'] as String,
+      bannerURL: json['bannerURL'] as String,
+    );
+  }
 }
 

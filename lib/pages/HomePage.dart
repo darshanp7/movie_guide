@@ -3,13 +3,12 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'dart:async';
 
-import '../model/Movie.dart';
 import './MoviePage.dart';
+import '../services/MoviesService.dart';
 
 class HomePage extends StatelessWidget {
-  List<Movie> _movieList;
 
-  final String _filename = 'assets/database/db.json';
+  final MoviesServices movieService = new MoviesServices();
 
   @override
   Widget build(BuildContext context) {
@@ -89,9 +88,10 @@ class HomePage extends StatelessWidget {
   }
 
   Container _buildDynamicGridList(BuildContext context) {
+
     return Container(
         child: new FutureBuilder(
-            future: DefaultAssetBundle.of(context).loadString(_filename),
+            future: movieService.getMovies(),
             builder: (context, snapshot) {
               if (snapshot.data == null) {
                 print('snapshot data is null');
@@ -101,12 +101,12 @@ class HomePage extends StatelessWidget {
                     ));
               } else {
                 print('snapshot data is not null');
-                _movieList = _parseJson(snapshot.data.toString());
+                movieService.parseJson(snapshot.data.toString());
                 return GridView.count(
                   crossAxisCount: 2,
                   padding: EdgeInsets.all(4.0),
                   childAspectRatio: 140 / 209,
-                  children: List.generate(_movieList.length, (index) {
+                  children: List.generate(movieService.getMovieList().length, (index) {
                     return Stack(
                       children: <Widget>[
                         Positioned.fill(
@@ -122,7 +122,7 @@ class HomePage extends StatelessWidget {
                                       new MaterialPageRoute(
                                           builder: (BuildContext context) =>
                                           new MoviePage(
-                                              _movieList[index])));
+                                              movieService.getMovieList()[index])));
                                 },
                               ),
                             ))
@@ -132,15 +132,6 @@ class HomePage extends StatelessWidget {
                 );
               }
             }));
-  }
-
-  List<Movie> _parseJson(String response) {
-    if (response == null) return [];
-    final parsed =
-        json.decode(response.toString()).cast<Map<String, dynamic>>();
-    List<Movie> list = List<Movie>.from(parsed.map((i) => Movie.fromJson(i)));
-    return list;
-    //return parsed.map<Movie>((json) => new Movie.fromJson(json)).toList();
   }
 
   Widget _singleGridCard(int index) {
@@ -155,7 +146,7 @@ class HomePage extends StatelessWidget {
             AspectRatio(
               aspectRatio: 2 / 2.7,
               child: Image.asset(
-                _movieList[index].imgURL,
+                movieService.getMovieList()[index].imgURL,
                 fit: BoxFit.cover,
               ),
             ),
@@ -165,7 +156,7 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    _movieList[index].title,
+                    movieService.getMovieList()[index].title,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   )
